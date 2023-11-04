@@ -1,0 +1,56 @@
+@import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Roboto:wght@400;900&display=swap');
+
+@font-face {
+  font-family: "Pistilli-Roman";
+  src:
+    url("./fonts/Pistilli-Roman.ttf"),
+}
+
+:root[data-theme="light"] {
+  --text: #232020;
+  --background: #FFFFFF;
+}
+
+:root[data-theme="dark"] {
+  --text: #FFFFFF;
+  --background: #232020;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+body {
+  text-align: center;
+  margin: 0 auto;
+  background-color: var(--background);
+}
+
+p,
+h1 {
+  font-family: 'Roboto', sans-serif;
+  color: var(--text);
+}
+
+button {
+  padding: 0.9em;
+  margin: 5px;
+  width: 6em;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: var(--background);
+  font-weight: 600;
+}
+
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+}
