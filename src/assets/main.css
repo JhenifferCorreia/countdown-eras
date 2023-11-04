@@ -7,14 +7,9 @@
     url("./fonts/Pistilli-Roman.ttf"),
 }
 
-:root[data-theme="light"] {
+:root {
   --text: #232020;
   --background: #FFFFFF;
-}
-
-:root[data-theme="dark"] {
-  --text: #FFFFFF;
-  --background: #232020;
 }
 
 #app {
