@@ -1,10 +1,12 @@
-# countdown-eras
 
-This template should help get you started developing with Vue 3 in Vite.
+# Countdown Timer para The Eras Tour Brasil
 
-## Recommended IDE Setup
+É um contador de dias para os show da Taylor Swift no Brasil.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+
+## Demonstração
+
+![gif](https://s5.gifyu.com/images/S8Zkr.gif)
 
 ## Type Support for `.vue` Imports in TS
 
@@ -38,3 +40,8 @@ npm run dev
 ```sh
 npm run build
 ```
+
+## Autores
+
+- [@JhenifferCorreia](https://www.github.com/JhenifferCorreia)
+
