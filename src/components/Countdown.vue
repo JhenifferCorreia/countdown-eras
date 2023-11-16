@@ -5,7 +5,7 @@ const days = ref(0);
 const hours = ref(0);
 const minutes = ref(0);
 const seconds = ref(0);
-const countDownDate = ref(new Date("2023-11-17").getTime());
+const countDownDate = ref(new Date("2023-11-17T00:00").getTime());
 
 onMounted(() => {
   getTime();
@@ -18,12 +18,8 @@ function getTime() {
 function CountDown() {
   setInterval(() => {
     const now = new Date().getTime();
-    const startOfDay = new Date();
-    startOfDay.setHours(0, 0, 0, 0);
-    const nextDay = new Date(countDownDate.value);
-    nextDay.setDate(nextDay.getDate() + 1);
 
-    const distance = Number(nextDay) - now;
+    const distance = Number(countDownDate.value) - now;
 
     days.value = Math.floor(distance / (1000 * 60 * 60 * 24));
     hours.value = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -63,14 +59,14 @@ function formatedSeconds() {
 
     <div>
       <div class="rj">
-        <button id="fearless" @click="updateCountdown('2023-11-17')">RJ 17/11</button>
-        <button id="red" @click="updateCountdown('2023-11-18')">RJ 18/11</button>
-        <button id="reputation" @click="updateCountdown('2023-11-19')">RJ 19/11</button>
+        <button id="fearless" @click="updateCountdown('2023-11-17T00:00')">RJ 17/11</button>
+        <button id="red" @click="updateCountdown('2023-11-18T00:00')">RJ 18/11</button>
+        <button id="reputation" @click="updateCountdown('2023-11-19T00:00')">RJ 19/11</button>
       </div>
       <div class="sp">
-        <button id="evermore" @click="updateCountdown('2023-11-24')">SP 24/11</button>
-        <button id="lover" @click="updateCountdown('2023-11-25')">SP 25/11</button>
-        <button id="midnights" @click="updateCountdown('2023-11-26')">SP 26/11</button>
+        <button id="evermore" @click="updateCountdown('2023-11-24T00:00')">SP 24/11</button>
+        <button id="lover" @click="updateCountdown('2023-11-25T00:00')">SP 25/11</button>
+        <button id="midnights" @click="updateCountdown('2023-11-26T00:00')">SP 26/11</button>
       </div>
     </div>
   </div>
