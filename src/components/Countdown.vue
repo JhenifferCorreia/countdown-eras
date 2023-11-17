@@ -6,6 +6,7 @@ const hours = ref(0);
 const minutes = ref(0);
 const seconds = ref(0);
 const countDownDate = ref(new Date("2023-11-17T00:00").getTime());
+let countdownInterval: ReturnType<typeof setInterval>;
 
 onMounted(() => {
   getTime();
@@ -16,10 +17,18 @@ function getTime() {
 }
 
 function CountDown() {
-  setInterval(() => {
+  countdownInterval = setInterval(() => {
     const now = new Date().getTime();
-
     const distance = Number(countDownDate.value) - now;
+
+    if (distance <= 0) {
+      clearInterval(countdownInterval);
+      days.value = 0;
+      hours.value = 0;
+      minutes.value = 0;
+      seconds.value = 0;
+      return;
+    }
 
     days.value = Math.floor(distance / (1000 * 60 * 60 * 24));
     hours.value = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -29,7 +38,9 @@ function CountDown() {
 }
 
 function updateCountdown(dateString: string) {
+  clearInterval(countdownInterval);
   countDownDate.value = new Date(dateString)!.getTime();
+  CountDown();
 }
 
 function formatedDays() {
@@ -48,15 +59,14 @@ function formatedSeconds() {
   return String(seconds.value).padStart(2, '0');
 }
 
-
 </script>
+
 
 <template>
   <div>
     <div class="countdown">
       <p>{{ formatedDays() }}:{{ formatedHours() }}:{{ formatedMinutes() }}:{{ formatedSeconds() }}</p>
     </div>
-
     <div>
       <div class="rj">
         <button id="fearless" @click="updateCountdown('2023-11-17T00:00')">RJ 17/11</button>
